@@ -1,0 +1,45 @@
+application: futabooo-fugo
+version: 1
+runtime: go
+api_version: go1
+
+handlers:
+- url: /
+  static_files: public/index.html
+  upload: /
+- url: /css
+  static_dir: public/css
+- url: /js
+  static_dir: public/js
+- url: /img
+  static_dir: public/img
+- url: /(.*)/$
+  static_files: public/\1/index.html
+  upload: .*\.html$
+- url: /.*
+  script: _go_app
+
+skip_files: |
+  ^(.*/)?(
+  (#.*#)|
+  (.*~)|
+  (.*\.py[co])|
+  (.*\.po)|
+  (.*\.pot)|
+  (\..*)|
+  (manage\.py)|
+  (README\.md)|
+  (LICENSE)|
+  (archetypes\/.*)|
+  (content\/.*)|
+  (data\/.*)|
+  (layouts\/.*)|
+  (static\/.*)|
+  (themes\/.*)|
+  (\.git\/.*)|
+  (\.gitignore)|
+  (app\.yml)|
+  (index\.yaml)|
+  (index\.yml)|
+  (config\.yaml)|
+  )$
