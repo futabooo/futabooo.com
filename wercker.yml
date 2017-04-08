@@ -12,13 +12,13 @@ build:
         theme: hugo-tranquilpeak-theme
         config: config.toml
         flags: --buildDrafts=true
-deploy:
-  box: google/cloud-sdk
-  steps:
-  - script:
-    name: deploy to gcp
-    code: |
-      echo $GCP_SERVICE_ACCOUNT_JSON | base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
-      gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
-      gcloud config set project $GCP_PROJECT
-      gcloud app deploy app.yml
+#deploy:
+#  box: google/cloud-sdk
+#  steps:
+#  - script:
+#    name: deploy to gcp
+#    code: |
+#      echo $GCP_SERVICE_ACCOUNT_JSON | base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
+#      gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+#      gcloud config set project $GCP_PROJECT
+#      gcloud app deploy app.yml
